@@ -1,5 +1,8 @@
 name: chn-ip-task
 
+permissions:
+  contents: write
+
 on:
   push: # push触发
     branches: [ master ]
@@ -43,25 +46,87 @@ jobs:
     - name: Run
       run: dotnet run --project china_ip_list.csproj
 
-    # 提交更改到本地
-    - name: Commit files
+    # 准备生成文件
+    - name: Prepare generated files
       run: |
-         git config --local user.email "mayax@github.com"
-         git config --local user.name "mayaxcn"
-         ls
-         pwd
-         git rm -f chn_ip.txt chnroute.txt chn_ip_v6.txt chnroute_v6.txt
-         git commit -m "删除旧有IP文件!"
-         cp /home/runner/work/china-ip-list/china-ip-list/bin/Debug/net7.0/chn_ip.txt chn_ip.txt
-         cp /home/runner/work/china-ip-list/china-ip-list/bin/Debug/net7.0/chnroute.txt chnroute.txt
-         cp /home/runner/work/china-ip-list/china-ip-list/bin/Debug/net7.0/chn_ip_v6.txt chn_ip_v6.txt
-         cp /home/runner/work/china-ip-list/china-ip-list/bin/Debug/net7.0/chnroute_v6.txt chnroute_v6.txt
-         git add chn_ip.txt chnroute.txt chn_ip_v6.txt chnroute_v6.txt
-         git commit -m "提交新的IP文件，更新于$(date "+%Y-%m-%d %H:%M:%S")"
-         
-    # 推送到远程
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-         github_token: ${{ secrets.CHNIP_GIT_KEY }}
-         branch: master
+         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+         git config --local user.name "github-actions[bot]"
+         cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/chn_ip.txt" /tmp/chn_ip.txt
+         cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/chnroute.txt" /tmp/chnroute.txt
+         cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/chn_ip_v6.txt" /tmp/chn_ip_v6.txt
+         cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/chnroute_v6.txt" /tmp/chnroute_v6.txt
+
+    # 更新 generated 分支
+    - name: Update generated branch
+      run: |
+         git fetch origin generated || true
+         if git ls-remote --exit-code --heads origin generated; then
+           git checkout generated
+           git pull --rebase origin generated
+         else
+           git checkout --orphan generated
+         fi
+
+         git rm -rf . || true
+
+         cp /tmp/chn_ip.txt chn_ip.txt
+         cp /tmp/chnroute.txt chnroute.txt
+         cp /tmp/chn_ip_v6.txt chn_ip_v6.txt
+         cp /tmp/chnroute_v6.txt chnroute_v6.txt
+         REPO="$GITHUB_REPOSITORY"
+         cat > README.md << EOF
+         # Mainland_China_IP_list_with_ipv4_v6
+
+         该分支（`generated`）仅存放 GitHub Actions 自动生成的数据文件。
+
+         ## 文件列表
+
+         - `chnroute.txt`（IPv4 CIDR，适合路由器）
+         - `chn_ip.txt`（IPv4 起止范围）
+         - `chnroute_v6.txt`（IPv6 CIDR，适合路由器）
+         - `chn_ip_v6.txt`（IPv6 起止范围）
+
+         ## 外链访问方法
+
+         ### raw.githubusercontent.com
+
+         - https://raw.githubusercontent.com/${REPO}/generated/chnroute.txt
+         - https://raw.githubusercontent.com/${REPO}/generated/chn_ip.txt
+         - https://raw.githubusercontent.com/${REPO}/generated/chnroute_v6.txt
+         - https://raw.githubusercontent.com/${REPO}/generated/chn_ip_v6.txt
+
+         ### cdn.jsdelivr.net
+
+         - https://cdn.jsdelivr.net/gh/${REPO}@generated/chnroute.txt
+         - https://cdn.jsdelivr.net/gh/${REPO}@generated/chn_ip.txt
+         - https://cdn.jsdelivr.net/gh/${REPO}@generated/chnroute_v6.txt
+         - https://cdn.jsdelivr.net/gh/${REPO}@generated/chn_ip_v6.txt
+
+         ### fastly.jsdelivr.net
+
+         - https://fastly.jsdelivr.net/gh/${REPO}@generated/chnroute.txt
+         - https://fastly.jsdelivr.net/gh/${REPO}@generated/chn_ip.txt
+         - https://fastly.jsdelivr.net/gh/${REPO}@generated/chnroute_v6.txt
+         - https://fastly.jsdelivr.net/gh/${REPO}@generated/chn_ip_v6.txt
+
+         ### testingcf.jsdelivr.net
+
+         - https://testingcf.jsdelivr.net/gh/${REPO}@generated/chnroute.txt
+         - https://testingcf.jsdelivr.net/gh/${REPO}@generated/chn_ip.txt
+         - https://testingcf.jsdelivr.net/gh/${REPO}@generated/chnroute_v6.txt
+         - https://testingcf.jsdelivr.net/gh/${REPO}@generated/chn_ip_v6.txt
+
+         ### 代理访问示例
+
+         - https://gh-proxy.org/https://github.com/jqtmviyu/smartdns-china-domain
+         EOF
+
+         git add README.md chn_ip.txt chnroute.txt chn_ip_v6.txt chnroute_v6.txt
+
+         if git diff --staged --quiet; then
+           echo "No changes to commit"
+           exit 0
+         fi
+
+         git commit -m "Update generated IP files $(date "+%Y-%m-%d %H:%M:%S")"
+         git push origin generated

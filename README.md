@@ -5,9 +5,9 @@
 ### 每小时更新中国IP范围列表，Update Mainland China ip's list in every 1 hour
 
 ***************IPV4***************
-路由器使用（Openwrt）直接访问 https://raw.githubusercontent.com/mayaxcn/china-ip-list/master/chnroute.txt <br>
-其他客户端使用直接访问 https://raw.githubusercontent.com/mayaxcn/china-ip-list/master/chn_ip.txt
+路由器使用（Openwrt）直接访问 https://raw.githubusercontent.com/<你的GitHub用户名>/<你的仓库名>/generated/chnroute.txt <br>
+其他客户端使用直接访问 https://raw.githubusercontent.com/<你的GitHub用户名>/<你的仓库名>/generated/chn_ip.txt
 
 ***************IPV6***************
-路由器使用（Openwrt）直接访问 https://raw.githubusercontent.com/mayaxcn/china-ip-list/master/chnroute_v6.txt <br>
-其他客户端使用直接访问 https://raw.githubusercontent.com/mayaxcn/china-ip-list/master/chn_ip_v6.txt
+路由器使用（Openwrt）直接访问 https://raw.githubusercontent.com/<你的GitHub用户名>/<你的仓库名>/generated/chnroute_v6.txt <br>
+其他客户端使用直接访问 https://raw.githubusercontent.com/<你的GitHub用户名>/<你的仓库名>/generated/chn_ip_v6.txt
