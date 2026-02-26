@@ -41,4 +41,7 @@
 
 ### 代理访问示例
 
-- https://gh-proxy.org/https://github.com/jqtmviyu/smartdns-china-domain
+- https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/chnroute.txt
+- https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/chn_ip.txt
+- https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/chnroute_v6.txt
+- https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/chn_ip_v6.txt
