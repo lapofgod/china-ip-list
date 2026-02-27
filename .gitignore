@@ -344,3 +344,7 @@ chn_ip.txt
 chnroute.txt
 chn_ip_v6.txt
 chnroute_v6.txt
+non_chn_ip.txt
+non_chnroute.txt
+non_chn_ip_v6.txt
+non_chnroute_v6.txt

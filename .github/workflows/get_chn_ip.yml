@@ -55,6 +55,10 @@ jobs:
          cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/chnroute.txt" /tmp/chnroute.txt
          cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/chn_ip_v6.txt" /tmp/chn_ip_v6.txt
          cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/chnroute_v6.txt" /tmp/chnroute_v6.txt
+         cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/non_chn_ip.txt" /tmp/non_chn_ip.txt
+         cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/non_chnroute.txt" /tmp/non_chnroute.txt
+         cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/non_chn_ip_v6.txt" /tmp/non_chn_ip_v6.txt
+         cp "$GITHUB_WORKSPACE/bin/Debug/net7.0/non_chnroute_v6.txt" /tmp/non_chnroute_v6.txt
 
     # 更新 generated 分支
     - name: Update generated branch
@@ -73,6 +77,10 @@ jobs:
          cp /tmp/chnroute.txt chnroute.txt
          cp /tmp/chn_ip_v6.txt chn_ip_v6.txt
          cp /tmp/chnroute_v6.txt chnroute_v6.txt
+         cp /tmp/non_chn_ip.txt non_chn_ip.txt
+         cp /tmp/non_chnroute.txt non_chnroute.txt
+         cp /tmp/non_chn_ip_v6.txt non_chn_ip_v6.txt
+         cp /tmp/non_chnroute_v6.txt non_chnroute_v6.txt
          REPO="$GITHUB_REPOSITORY"
          cat > README.md << EOF
          # Mainland_China_IP_list_with_ipv4_v6
@@ -85,6 +93,10 @@ jobs:
          - `chn_ip.txt`（IPv4 起止范围）
          - `chnroute_v6.txt`（IPv6 CIDR，适合路由器）
          - `chn_ip_v6.txt`（IPv6 起止范围）
+         - `non_chnroute.txt`（非中国 IPv4 CIDR，适合路由器）
+         - `non_chn_ip.txt`（非中国 IPv4 起止范围）
+         - `non_chnroute_v6.txt`（非中国 IPv6 CIDR，适合路由器）
+         - `non_chn_ip_v6.txt`（非中国 IPv6 起止范围）
 
          ## 外链访问方法
 
@@ -94,6 +106,10 @@ jobs:
          - https://raw.githubusercontent.com/${REPO}/generated/chn_ip.txt
          - https://raw.githubusercontent.com/${REPO}/generated/chnroute_v6.txt
          - https://raw.githubusercontent.com/${REPO}/generated/chn_ip_v6.txt
+         - https://raw.githubusercontent.com/${REPO}/generated/non_chnroute.txt
+         - https://raw.githubusercontent.com/${REPO}/generated/non_chn_ip.txt
+         - https://raw.githubusercontent.com/${REPO}/generated/non_chnroute_v6.txt
+         - https://raw.githubusercontent.com/${REPO}/generated/non_chn_ip_v6.txt
 
          ### cdn.jsdelivr.net
 
@@ -101,6 +117,10 @@ jobs:
          - https://cdn.jsdelivr.net/gh/${REPO}@generated/chn_ip.txt
          - https://cdn.jsdelivr.net/gh/${REPO}@generated/chnroute_v6.txt
          - https://cdn.jsdelivr.net/gh/${REPO}@generated/chn_ip_v6.txt
+         - https://cdn.jsdelivr.net/gh/${REPO}@generated/non_chnroute.txt
+         - https://cdn.jsdelivr.net/gh/${REPO}@generated/non_chn_ip.txt
+         - https://cdn.jsdelivr.net/gh/${REPO}@generated/non_chnroute_v6.txt
+         - https://cdn.jsdelivr.net/gh/${REPO}@generated/non_chn_ip_v6.txt
 
          ### fastly.jsdelivr.net
 
@@ -108,6 +128,10 @@ jobs:
          - https://fastly.jsdelivr.net/gh/${REPO}@generated/chn_ip.txt
          - https://fastly.jsdelivr.net/gh/${REPO}@generated/chnroute_v6.txt
          - https://fastly.jsdelivr.net/gh/${REPO}@generated/chn_ip_v6.txt
+         - https://fastly.jsdelivr.net/gh/${REPO}@generated/non_chnroute.txt
+         - https://fastly.jsdelivr.net/gh/${REPO}@generated/non_chn_ip.txt
+         - https://fastly.jsdelivr.net/gh/${REPO}@generated/non_chnroute_v6.txt
+         - https://fastly.jsdelivr.net/gh/${REPO}@generated/non_chn_ip_v6.txt
 
          ### testingcf.jsdelivr.net
 
@@ -115,6 +139,10 @@ jobs:
          - https://testingcf.jsdelivr.net/gh/${REPO}@generated/chn_ip.txt
          - https://testingcf.jsdelivr.net/gh/${REPO}@generated/chnroute_v6.txt
          - https://testingcf.jsdelivr.net/gh/${REPO}@generated/chn_ip_v6.txt
+         - https://testingcf.jsdelivr.net/gh/${REPO}@generated/non_chnroute.txt
+         - https://testingcf.jsdelivr.net/gh/${REPO}@generated/non_chn_ip.txt
+         - https://testingcf.jsdelivr.net/gh/${REPO}@generated/non_chnroute_v6.txt
+         - https://testingcf.jsdelivr.net/gh/${REPO}@generated/non_chn_ip_v6.txt
 
          ### 代理访问示例
 
@@ -122,9 +150,13 @@ jobs:
          - https://gh-proxy.org/https://raw.githubusercontent.com/${REPO}/generated/chn_ip.txt
          - https://gh-proxy.org/https://raw.githubusercontent.com/${REPO}/generated/chnroute_v6.txt
          - https://gh-proxy.org/https://raw.githubusercontent.com/${REPO}/generated/chn_ip_v6.txt
+         - https://gh-proxy.org/https://raw.githubusercontent.com/${REPO}/generated/non_chnroute.txt
+         - https://gh-proxy.org/https://raw.githubusercontent.com/${REPO}/generated/non_chn_ip.txt
+         - https://gh-proxy.org/https://raw.githubusercontent.com/${REPO}/generated/non_chnroute_v6.txt
+         - https://gh-proxy.org/https://raw.githubusercontent.com/${REPO}/generated/non_chn_ip_v6.txt
          EOF
 
-         git add README.md chn_ip.txt chnroute.txt chn_ip_v6.txt chnroute_v6.txt
+         git add README.md chn_ip.txt chnroute.txt chn_ip_v6.txt chnroute_v6.txt non_chn_ip.txt non_chnroute.txt non_chn_ip_v6.txt non_chnroute_v6.txt
 
          if git diff --staged --quiet; then
            echo "No changes to commit"
