@@ -8,6 +8,10 @@
 - （IPv4 起止范围）
 - （IPv6 CIDR，适合路由器）
 - （IPv6 起止范围）
+- （非中国 IPv4 CIDR，适合路由器）
+- （非中国 IPv4 起止范围）
+- （非中国 IPv6 CIDR，适合路由器）
+- （非中国 IPv6 起止范围）
 
 ## 外链访问方法
 
@@ -17,6 +21,10 @@
 - https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/chn_ip.txt
 - https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/chnroute_v6.txt
 - https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/chn_ip_v6.txt
+- https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/non_chnroute.txt
+- https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/non_chn_ip.txt
+- https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/non_chnroute_v6.txt
+- https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/non_chn_ip_v6.txt
 
 ### cdn.jsdelivr.net
 
@@ -24,6 +32,10 @@
 - https://cdn.jsdelivr.net/gh/lapofgod/china-ip-list@generated/chn_ip.txt
 - https://cdn.jsdelivr.net/gh/lapofgod/china-ip-list@generated/chnroute_v6.txt
 - https://cdn.jsdelivr.net/gh/lapofgod/china-ip-list@generated/chn_ip_v6.txt
+- https://cdn.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chnroute.txt
+- https://cdn.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chn_ip.txt
+- https://cdn.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chnroute_v6.txt
+- https://cdn.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chn_ip_v6.txt
 
 ### fastly.jsdelivr.net
 
@@ -31,6 +43,10 @@
 - https://fastly.jsdelivr.net/gh/lapofgod/china-ip-list@generated/chn_ip.txt
 - https://fastly.jsdelivr.net/gh/lapofgod/china-ip-list@generated/chnroute_v6.txt
 - https://fastly.jsdelivr.net/gh/lapofgod/china-ip-list@generated/chn_ip_v6.txt
+- https://fastly.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chnroute.txt
+- https://fastly.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chn_ip.txt
+- https://fastly.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chnroute_v6.txt
+- https://fastly.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chn_ip_v6.txt
 
 ### testingcf.jsdelivr.net
 
@@ -38,6 +54,10 @@
 - https://testingcf.jsdelivr.net/gh/lapofgod/china-ip-list@generated/chn_ip.txt
 - https://testingcf.jsdelivr.net/gh/lapofgod/china-ip-list@generated/chnroute_v6.txt
 - https://testingcf.jsdelivr.net/gh/lapofgod/china-ip-list@generated/chn_ip_v6.txt
+- https://testingcf.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chnroute.txt
+- https://testingcf.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chn_ip.txt
+- https://testingcf.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chnroute_v6.txt
+- https://testingcf.jsdelivr.net/gh/lapofgod/china-ip-list@generated/non_chn_ip_v6.txt
 
 ### 代理访问示例
 
@@ -45,3 +65,7 @@
 - https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/chn_ip.txt
 - https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/chnroute_v6.txt
 - https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/chn_ip_v6.txt
+- https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/non_chnroute.txt
+- https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/non_chn_ip.txt
+- https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/non_chnroute_v6.txt
+- https://gh-proxy.org/https://raw.githubusercontent.com/lapofgod/china-ip-list/generated/non_chn_ip_v6.txt
